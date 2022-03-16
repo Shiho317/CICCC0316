@@ -1,12 +1,27 @@
 import React, { Component } from 'react';
 //import images
+import lookLeft from '../assets/look-left.jpeg';
+import lookRight from '../assets/look-right.jpeg';
 
 class ChallengeOne extends Component {
   //declare the state here
   state = {
+    direction: 'right',
   };
 
   //click left/right button handler goes here
+
+  onClickToRight = () => {
+    this.setState({
+      direction: 'right',
+    })
+  };
+
+  onClickToLeft = () => {
+    this.setState({
+      direction: 'left',
+    })
+  };
 
   render() {
     return (
@@ -15,12 +30,12 @@ class ChallengeOne extends Component {
         <div className="msg">
           <img
             className="ch1"
-            src=""
-            alt=""
+            src={this.state.direction === 'right' ? lookRight : lookLeft}
+            alt="women"
           />
         </div>
-        <button className="btn">⭠</button>
-        <button className="btn">⭢</button>
+        <button className="btn" onClick={this.onClickToLeft}>⭠</button>
+        <button className="btn" onClick={this.onClickToRight}>⭢</button>
       </>
     );
   }
